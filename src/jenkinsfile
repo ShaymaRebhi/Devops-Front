@@ -1,0 +1,49 @@
+pipeline{
+agent any
+
+        stages{
+
+
+
+
+			    stage('Build docker image'){
+                             steps{
+                                 script{
+                                    sh 'docker build -t oumaymafarhani/angularproject .'
+                                 }
+                             }
+                         }
+
+
+
+
+      stage('Docker login') {
+
+                                         steps {
+                                          sh 'echo "login Docker ...."'
+                   	sh 'docker login -u oumaymafarhani -p 29416927Oumayma'
+                               }  }
+		 stage('Docker push') {
+
+                 steps {
+                      sh 'echo "Docker is pushing ...."'
+                     	sh 'docker push oumaymafarhani/angularproject'
+                        }  }
+
+     }
+
+post {
+                                                success {
+                                                     mail to: "oumayma.farhani@esprit.tn",
+                                                     subject: "Pipeline Success",
+                                                     body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
+                                                }
+                    failure {
+                        mail to: "oumayma.farhani@esprit.tn",
+                         subject: "Pipeline Failure",
+                         body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
+                    }
+                    }
+
+
+  }
