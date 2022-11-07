@@ -34,12 +34,12 @@ agent any
 
 post {
                                                 success {
-                                                     mail to: "samar.chouikhi@esprit.tn",
+                                                     mail to: "hiba.elwafi@esprit.tn",
                                                      subject: "Pipeline Success",
                                                      body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
                                                 }
                     failure {
-                        mail to: "samar.chouikhi@esprit.tn",
+                        mail to: "hiba.elwafi@esprit.tn",
                          subject: "Pipeline Failure",
                          body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
                     }
