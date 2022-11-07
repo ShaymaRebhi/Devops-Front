@@ -30,6 +30,8 @@ agent any
                      	sh 'docker push shaymarebhi/angularproject'
                         }  }
 
+     }
+
 post {
                                                 success {
                                                      mail to: "shayma.rebhi@esprit.tn",
@@ -42,13 +44,6 @@ post {
                          body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
                     }
                     }
-//      stage('Cleaning up') {
-//         steps {
-//             	sh 'docker login -u shaymarebhi -p lafloufet123'
-//                sh "docker rmi -f shaymarebhi/angularproject"
-//
-//                                 }
-//                                 }
 
-}
+
   }
