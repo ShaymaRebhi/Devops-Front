@@ -39,12 +39,12 @@ agent any
 post {
  success {
 	 mail to: "oumayma.farhani@esprit.tn",
-	subject: "Pipeline Backend Success ",
+	subject: "Pipeline Front Success ",
  	body: "Welcome to DevOps project Front : Success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
 }
 	failure {
           mail to: "oumayma.farhani@esprit.tn",
-           subject: "Pipeline backend Failure",
+           subject: "Pipeline Front Failure",
            body: "Welcome to DevOps project Front : Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
                     }
                     }
