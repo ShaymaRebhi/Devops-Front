@@ -30,23 +30,18 @@ agent any
                      	sh 'docker push oumaymafarhani/angularproject'
                         }  }
 
-     }
-
-post {
-                                                success {
-                                                     mail to: "hiba.elwafi@esprit.tn",
-                                                     subject: "Pipeline Success",
-                                                     body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
-                                                }
-                    failure {
-                        mail to: "hiba.elwafi@esprit.tn",
-                         subject: "Pipeline Failure",
-                         body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
-                    }
-                    
-                    }
+     
 
 
+stage('Sending email'){
+	    steps {
+	        mail bcc: '', body: '''Hello from oumayma farhani,
+	        Devops Pipeline with success.
+	        Cordialement''', cc: '', from: '', replyTo: '', subject: 'Devops', to: 'oumayma.farhani@esprit.tn'
+	             }
+	        }
+
+}
 
 
   }
