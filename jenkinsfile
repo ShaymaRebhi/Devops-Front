@@ -6,29 +6,26 @@ agent any
 
 
 
-			    stage('Build docker image'){
-                             steps{
-                                 script{
-                                    sh 'docker build -t sofiene1998/angularproject .'
-                                 }
-                             }
-                         }
-
-
-
+     stage('Build docker image'){
+          steps{
+               script{
+                    sh 'docker build -t sofiene1998/angularproject .'
+               }
+          }
+          }
 
       stage('Docker login') {
 
-                                         steps {
-                                          sh 'echo "login Docker ...."'
-                   	sh 'docker login -u sofiene1998 -p leoncupra1'
-                               }  }
-		 stage('Docker push') {
+          steps{
+               sh 'echo "login Docker ...."'
+               sh 'docker login -u sofiene1998 -p leoncupra1'
+          }  }
 
-                 steps {
-                      sh 'echo "Docker is pushing ...."'
-                     	sh 'docker push sofiene1998/angularproject'
-                        }  }
+     stage('Docker push') {
+          steps {
+               sh 'echo "Docker is pushing ...."'
+               sh 'docker push sofiene1998/angularproject'
+          }  }
 
      }
 
