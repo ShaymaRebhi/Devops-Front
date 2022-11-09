@@ -30,8 +30,7 @@ agent any
                      	sh 'docker push oumaymafarhani/angularproject'
                         }  }
 
-     }
-
+     
 
                     
                     }
