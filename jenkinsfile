@@ -21,7 +21,7 @@ agent any
 
                                          steps {
                                           sh 'echo "login Docker ...."'
-                   	sh 'docker login -u hibaef -p 13632307Hiba'
+                   	sh 'docker login -u hibaef -p **********'
                                }  }
 		 stage('Docker push') {
 
@@ -34,12 +34,12 @@ agent any
 
 post {
                                                 success {
-                                                     mail to: "hiba.elwafi@esprit.tn",
+                                                     mail to: "hibaef@esprit.tn",
                                                      subject: "Welcome to DevOps project Front-End  : Pipeline Success",
                                                      body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
                                                 }
                     failure {
-                        mail to: "hiba.elwafi@esprit.tn",
+                        mail to: "hibaef@esprit.tn",
                          subject: "Pipeline Failure",
                          body: "Welcome to DevOps project Front-End :Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
                     }
